@@ -1,0 +1,64 @@
+\chapter[Arquitetura de Software]{Arquitetura de Software}
+
+Podemos encontrar em citações feitas por vários autores a assertiva de que software geralmente é construído a partir de uma oportunidade de negócio ou da identificação de necessidades de usuários. Como anteriormente mencionado, a arquitetura de software é um composição de estruturas de sistema que exibem as características visíveis de elementos de software e o relacionamento e entre  tais elementos. Além disso, a arquitetura de software nada mais seria do que uma “ponte” que conecta as necessidades ou oportunidades identificadas e o software ou sistema em si, devendo tal arquitetura ser desenhada, documentada e analisada para posterior implementação (BASS, CLEMENTS, KASMAN, 2003).
+
+Sendo uma abstração do sistema a ser desenvolvido, a arquitetura de software exibe os detalhes julgados como necessários pelo arquiteto, bem como o comportamento do software. Isto permite a conclusão de que todo software possui uma arquitetura definida, sendo ela documentada ou não (BASS, CLEMENTS, KASMAN, 2003).
+
+\section{Tipos de estruturas arquiteturais de software}
+Primeiramente, é necessário a definição e diferenciação entre os termos visão e estrutura quando o assunto em questão é a representação da arquitetura de software. Kazman, Clements e Bass (2003) definem estrutura como o “conjunto de elementos de um sistema de software”  e visão como a “representação do conjunto de elementos do sistema e o relacionamento entre eles, escrita e lida pelos stakeholders”. Ainda defendem categorização das visões de software existentes: arquitetura baseada em estrutura de decomposição em módulos, baseada em componentes e conectores e em estruturas de alocação.
+
+De acordo com Kazman, Clements e Bass (2003), a arquitetura baseada em decomposição do sistema em módulos procura representar o sistema de modo estático, de modo que os elementos do sistema são módulos definidos como classes, camadas ou, simplesmente, divisões de funcionalidades. Definindo o sistema em módulos, a análise de impactos de mudanças no sistema pode ser feita ao examinar a estrutura de módulos do sistema.
+
+A arquitetura baseada em componentes e conectores procura demonstrar como os elementos do sistema irão interagir uns com os outros em tempo de execução, se caracterizando uma arquitetura dinâmica. É bastante útil quando características não funcionais, como performance e segurança, são analisadas.  A última categoria definida, a estrutura arquitetural de alocação, define como o sistema de software irá interagir com outros elementos que não são software, como harware e o time de desenvolvimento, permitindo a distribuição de atividades entre os membros da equipe de desenvolvimento e a definição de qual processador determinado elemento irá ser executado (KAZMAN, CLEMENTS, BASS, 2003).
+
+É importante mencionar que a categoria para representação de estruturas de software escolhida como objeto de análise desta pesquisa é a estrutura de decomposição em módulos. Todos os princípios e definições a partir daqui feitas serão baseadas nesta categorização.
+
+\section{Princípios de construção de arquitetura de software baseado em orientação a objetos}
+Orientação a objetos é um dos paradigmas existentes para a construção de sistemas de software. Este paradigma procura retratar objetos do mundo real como objetos lógicos dentro da estrutura do sistema de software. Tais objetos são defnidos por classes que possuem atributos e métodos, representando as características e comportamentos dos objetos que estas classes representam (DALL’OGLIO, 2009). O relacionamento entre os elementos desta estrutura orientada a objetos é representada por uma arquitetura que deve ser feita baseada em princípios de orientação a objetos e princípios que guiam a elaboração de uma boa arquitetura de software. Serão descritos a seguir os princípios de orientação a objetos, problemas que podem surgir caso a arquitetura orientada a objetos não seja adequada e princípios que devem ser seguidos de modo a evitar estes problemas.
+
+\subsection{Princípios de Orientação a Objetos}
+PAGE-JONES (2000) define cinco principais princípios de orientação a objetos, sendo eles encapsulamento, coesão, acoplamento e herança, de onde surgem as subclasses e subtipos.
+
+\subsubsection{Encapsulamento}
+Segundo Page-Jones (2000), o encapsulamento é um princípio de orientação a objetos que permite uma maior abstração do sistema, exibindo o que deve ser feito e não como. A encapsulação pode ser feita em cinco diferentes níveis:
+\begin{itemize}
+	\item Nível 0: não existe encapsulamento.
+	\item Nível 1: encapsulamento dentro de módulos procedurais.
+	\item Nível 2: encapsulamento dentro de classes.
+	\item Nível 3: encapsulamento dentro de pacotes.
+	\item Nível 4: encapsulamento por componentes do sistema.
+\end{itemize}
+
+\subsubsection{Coesão}
+Coesão é definida como o grau de afinidade entre procedimentos (métodos e atributos) dentro de cada módulo do sistema (PAGE-JONES, 2000). Quando classes ou módulos do sistema são fortemente coesos as características destes estão relacionadas de modo a contribuir para a melhor compreensão da abstração implementada pela classe.
+
+\subsubsection{Acoplamento}
+Acoplamento é definido por Page-Jones (2000) como uma característica que relacionam dois ou mais elementos de modo que qualquer mudança realizada em um elemento do sistema obrigará a verificação ou até mesmo a modificação de outros elementos relacionados.
+O ideal seria que os elementos de um sistema estejam fortemente coesos e possuam acoplamento fraco (PAGE-JONES, 2000).
+
+\subsubsection{Herança - Subclasses e Subtipos}
+Herança é um princípio de orientação a objetos que permite o compartilhamento de características entre os elementos de um sistema a partir da derivação (ou generalização) de tais elementos: uma superclasse do sistema engloba todas as características comuns das subclasses derivadas, sendo a subclasse, na maioria dos casos, um subtipo do objeto definido da superclasse (PAGE-JONES, 2000).
+Page-Jones (2000) define que um objeto A somente é subtipo de um objeto B se um objeto A pode ser utilizado em qualquer contexto onde é esperado um objeto B sem que falhas ou comportamentos inesperados ocorram. Quando utilizado o paradigma de orientação a objetos para a construção de um sistema de software, espera-se que toda subclasse do sistema também seja um subtipo, embora esta premissa não ocorra em todos os casos.
+
+\subsection{Características de uma arquitetura de software pobre}
+Dada um arquitetura de software mal planejada e implementada sem qualquer técnica ou procedimentos sistemáticos, podem surgir problemas que dificultam modificações no software. Martin (2000) aponta quatro principais sintomas de que a arquitetura de um software possui problemas:
+
+\begin{enumerate}
+	\item Rigidez: dificuldade para realização de mudanças, onde qualquer mudança em uma parte do software implica na necessidade de mudanças em vários outros módulos independentes do primeiro.
+	\item Fragilidade: relacionada à rigidez, qualquer mudança no software tende “quebrá-lo” em várias outras partes e de maneiras inesperadas.
+	\item Imobilidade: dificuldade de reuso de partes do software em outros softwares ou até mesmo no mesmo software por dependências entre os módulos/partes do sistema implementado.
+	\item Viscosidade: é identificado quando existem diferentes formas de realizar as mudanças na arquitetura de software e é sempre mais fácil realizar tais modificações de maneira errada.
+\end{enumerate}
+
+\subsection{Princípios para desenho de arquitetura orientada a objetos}
+Afim de propor soluções para que problemas de arquitetura de software pobres sejam resolvidos ou até mesmo que estes problemas sejam evitados durante a concepção de tais modelos de implementação, Martin (2000) nomeou cinco princípios para desenho e implementação de software orientado a objetos. Também conhecidos pelo acrônimo SOLID, estes princípios são:
+
+\begin{itemize}
+
+	\item \textbf{S}ingle Responsability Principle (Princípio de Responsabilidade singular ou individual): define que uma classe, pacote ou módulo do sistema deve conter apenas uma única responsabilidade. Caso este aspecto não esteja implementado, existe o acoplamento de classes, pacotes ou módulos, tornando o sistema frágil quanto à realização de modificações.
+	\item \textbf{O}pen/Closed Principle (Princípio “Aberto/Fechado”): define que qualquer módulo do sistema de software deve ser aberto para extensão do seu comportamento sem que mudanças sejam necessárias para tal extensão. Isso permite que novas funcionalidades sejam adicionadas ao software sem que haja a necessidade de modificação na arquitetura já existente.
+	\item \textbf{L}iskov Substitution Principle (Princípio de Substituição de Liskov): define que “subclasses devem ser substituíveis por suas classes base”, ou seja, se A é subclasse ou subtipo de B, então A pode substituir B quando o tipo B é esperado, preservando a corretude do sistema implementado.
+	\item \textbf{I}nterface Segregation Principle (Princípio de Segregação de Interface): define que se existe um módulo utilizado por vários clientes de maneiras diferentes e ao mesmo tempo, interfaces específicas (e abstratas) devem ser criadas para cada cliente.
+	\item \textbf{D}ependency Inversion Principle (Princípio de Inversão de Dependência): define que módulos, pacotes e classes do sistema de software devem ser desenhados de modo que a dependência existente entre estes seja definida por meio de interfaces ou funções e classes abstratas ao invés de utilizar-se de funções e classes concretas.
+
+\end{itemize}
